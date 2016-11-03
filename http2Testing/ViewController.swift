@@ -54,6 +54,8 @@ class ViewController: NSViewController, URLSessionDelegate, URLSessionDataDelega
 
     // So it works with self-signed certs (we don't care about TLS etc in this example)
     public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        print("URLAuthenticationChallenge")
+
         guard challenge.previousFailureCount == 0 else {
             challenge.sender?.cancel(challenge)
             completionHandler(.cancelAuthenticationChallenge, nil)
