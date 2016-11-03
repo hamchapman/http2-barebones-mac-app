@@ -41,6 +41,7 @@ class ViewController: NSViewController, URLSessionDelegate, URLSessionDataDelega
 
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         print("Got response: \(response)")
+        completionHandler(.allow)
     }
 
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
